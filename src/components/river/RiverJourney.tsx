@@ -171,7 +171,7 @@ export function RiverJourney() {
     };
     gsap.ticker.add(tick);
     gsap.ticker.lagSmoothing(0);
-    canvasRef.current!.parentElement!.dataset.sceneReady = "true";
+    canvasRef.current!.parentElement!.dataset["sceneReady"] = "true";
 
     return () => {
       gsap.ticker.remove(tick); st.kill(); lenis?.destroy();
