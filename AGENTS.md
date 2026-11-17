@@ -28,3 +28,5 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- River site: scroll progress (Lenis + ScrollTrigger) drives a fixed stage in src/components/river; per-frame updates write DOM transforms directly in one gsap ticker — keeps it jank-free.
