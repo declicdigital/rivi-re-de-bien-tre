@@ -2,10 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import Lenis from "lenis";
 import { SiteHeader } from "./SiteHeader";
 import type { RiverScene } from "./scene/RiverScene";
-import { CAM_X0, CAM_X1 } from "./scene/world";
+import { scrollForStop, scrollToCam } from "./pacing";
 
-const SCROLL_VH = 900; // longueur du voyage en hauteur d'écran
-const LOOK_AHEAD = 9; // la caméra vise un peu en avant
+const SCROLL_VH = 1400; // longueur du voyage en hauteur d'écran (la caméra ralentit aux étapes)
 
 const POINTS = [
   {
@@ -68,7 +67,7 @@ export function RiverJourney() {
       barRef.current!.style.transform = `scaleX(${smoothP})`;
       hintRef.current!.classList.toggle("is-hidden", smoothP > 0.003);
       if (!scene || still) return;
-      scene.setProgress(smoothP);
+      scene.setProgress(scrollToCam(smoothP));
       scene.frame(reduced ? 0 : dt);
 
       const w = window.innerWidth,
@@ -138,16 +137,7 @@ export function RiverJourney() {
     const el = scrollRef.current;
     if (!lenis || !el) return;
     const max = el.offsetHeight - window.innerHeight;
-    const xs: Record<string, number> = {
-      maderotherapie: 238,
-      kobido: 488,
-      "a-propos": 792,
-      contact: 905,
-    };
-    const p =
-      id === "top"
-        ? 0
-        : Math.min(1, Math.max(0, ((xs[id] ?? 0) - LOOK_AHEAD - CAM_X0) / (CAM_X1 - CAM_X0)));
+    const p = scrollForStop(id);
     lenis.scrollTo(p * max, { duration: 2.6, easing: (x) => 1 - Math.pow(1 - x, 4) });
   };
 
