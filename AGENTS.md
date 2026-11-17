@@ -29,4 +29,4 @@ use the editor.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
 
-- River site: scroll progress (Lenis + ScrollTrigger) drives a fixed stage in src/components/river; per-frame updates write DOM transforms directly in one gsap ticker — keeps it jank-free.
+- River site: a three.js scene (src/components/river/scene) loaded with a dynamic import, so nothing 3D runs on the server. Lenis smooths the scroll; scroll progress moves the camera left to right along the river. Bubbles are DOM elements placed each frame by projecting 3D anchors. Grass/rock/flower models are embedded as base64 modules (scene/models); textures and the Draco decoder live in public/scene and public/draco and load by relative path.
