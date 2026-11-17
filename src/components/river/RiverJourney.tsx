@@ -8,7 +8,7 @@ const W = 6; // journey length in viewport widths
 const POINTS = [
   { x: 1.4, title: "Madérothérapie", final: false },
   { x: 3.4, title: "Kobido", final: false },
-  { x: 5.5, title: "Enaoël Perriollat", sub: "Masseuse fascialiste, diplômée en madérothérapie et Kobido", final: true },
+  { x: 5.5, title: "Enaloël Perriollat", sub: "Masseuse fascialiste, diplômée en madérothérapie et Kobido", final: true },
 ];
 
 function rand(seed: number) {
@@ -220,7 +220,7 @@ export function RiverJourney() {
         </div>
 
         {/* UI overlay */}
-        <div className="ui-name fixed left-6 top-5 font-display text-lg md:left-10 md:top-7 md:text-xl">Enaoël Perriollat</div>
+        <div className="ui-name fixed left-6 top-5 font-display text-lg md:left-10 md:top-7 md:text-xl">Enaloël Perriollat</div>
         <div ref={hintRef} className="hint fixed bottom-14 left-1/2 -translate-x-1/2 text-center font-sans text-xs uppercase tracking-[0.25em]">
           Scroll pour descendre la rivière
           <div className="hint-arrow mx-auto mt-3">→</div>

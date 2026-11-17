@@ -81,10 +81,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Enaoël Perriollat" },
+      { title: "Enaloël Perriollat" },
       { name: "description", content: "Masseuse fascialiste — madérothérapie et Kobido" },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Enaoël Perriollat" },
+      { property: "og:title", content: "Enaloël Perriollat" },
       { property: "og:description", content: "Masseuse fascialiste — madérothérapie et Kobido" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
